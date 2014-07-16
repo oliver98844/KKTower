@@ -12,7 +12,9 @@ class BallNode: SKShapeNode {
 	
 	init(color: BallColor, width: CGFloat) {
 		super.init()
-		self.path = UIBezierPath(ovalInRect: CGRectMake(0, 0, width, width)).CGPath
+		var ovalPath = CGPathCreateMutable();
+		CGPathAddArc(ovalPath, nil, CGFloat(0), CGFloat(0), width / 2, CGFloat(0), CGFloat(2 * M_PI), false);
+		self.path = ovalPath
 		self.fillColor = color.color
 	}
 }
@@ -83,7 +85,7 @@ extension GameScene {
 	}
 	
 	func pointForBall(column: Int, row: Int) -> CGPoint {
-		return CGPoint(x: CGFloat(column) * tileWidth + 3, y: CGFloat(row) * tileWidth + 3)
+		return CGPoint(x: (CGFloat(column) + 0.5) * tileWidth, y: (CGFloat(row) + 0.5) * tileWidth)
 	}
 	
 	func tileAtPoint(point: CGPoint) -> (inTile: Bool, column: Int, row: Int) {
@@ -109,7 +111,7 @@ extension GameScene {
 				movingBall!.node!.fillColor = movingBall!.node!.fillColor.colorWithAlphaComponent(0.3)
 				movingNode = BallNode(color: ball.color, width: ballWidth)
 				movingNode!.fillColor = movingNode!.fillColor.colorWithAlphaComponent(0.7)
-				movingNode!.position = CGPointMake(location.x - ballWidth / 2, location.y - ballWidth / 2)
+				movingNode!.position = location
 				movingNode!.zPosition = 2
 				ballsLayer.addChild(movingNode)
 			}
@@ -123,7 +125,7 @@ extension GameScene {
 		
 		let touch = touches.anyObject() as UITouch
 		let location = touch.locationInNode(ballsLayer)
-		movingNode!.position = CGPointMake(location.x - ballWidth / 2, location.y - ballWidth / 2)
+		movingNode!.position = location
 		
 		let (inTile, column, row) = tileAtPoint(location)
 		
@@ -183,7 +185,6 @@ extension GameScene {
 			let delay = 0.05 + 0.35 * NSTimeInterval(index)
 			longestDuration = max(longestDuration, 0.3 + delay)
 			for ball in set {
-				
 				let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
 				scaleAction.timingMode = .EaseOut
 				ball.node!.runAction(SKAction.sequence([SKAction.waitForDuration(delay), scaleAction, SKAction.removeFromParent()]))
