@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A75F1F2E196A879800B030ED /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F1F2D196A879800B030ED /* Ball.swift */; };
+		A77C7D01196A720D00101B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D00196A720D00101B2D /* AppDelegate.swift */; };
+		A77C7D05196A720D00101B2D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D04196A720D00101B2D /* GameScene.swift */; };
+		A77C7D07196A720D00101B2D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D06196A720D00101B2D /* GameViewController.swift */; };
+		A77C7D0A196A720D00101B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77C7D08196A720D00101B2D /* Main.storyboard */; };
+		A77C7D0C196A720D00101B2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77C7D0B196A720D00101B2D /* Images.xcassets */; };
+		A77C7D18196A720D00101B2D /* KKTowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D17196A720D00101B2D /* KKTowerTests.swift */; };
+		A79A72CA1974CF39001CA8A7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72C91974CF39001CA8A7 /* Board.swift */; };
+		A79A72D01974F2CB001CA8A7 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72CF1974F2CB001CA8A7 /* Array2D.swift */; };
+		A79A72D21974F3C0001CA8A7 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72D11974F3C0001CA8A7 /* Set.swift */; };
+		A79A72DD19762445001CA8A7 /* Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72DC19762445001CA8A7 /* Fall.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A77C7D12196A720D00101B2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A77C7CF3196A720D00101B2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A77C7CFA196A720D00101B2D;
+			remoteInfo = KKTower;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A75F1F2D196A879800B030ED /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		A77C7CFB196A720D00101B2D /* KKTower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKTower.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A77C7CFF196A720D00101B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A77C7D00196A720D00101B2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A77C7D04196A720D00101B2D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A77C7D06196A720D00101B2D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A77C7D09196A720D00101B2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A77C7D0B196A720D00101B2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A77C7D11196A720D00101B2D /* KKTowerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KKTowerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A77C7D16196A720D00101B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A77C7D17196A720D00101B2D /* KKTowerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKTowerTests.swift; sourceTree = "<group>"; };
+		A79A72C91974CF39001CA8A7 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		A79A72CF1974F2CB001CA8A7 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		A79A72D11974F3C0001CA8A7 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		A79A72DC19762445001CA8A7 /* Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fall.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A77C7CF8196A720D00101B2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77C7D0E196A720D00101B2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A77C7CF2196A720D00101B2D = {
+			isa = PBXGroup;
+			children = (
+				A77C7CFD196A720D00101B2D /* KKTower */,
+				A77C7D14196A720D00101B2D /* KKTowerTests */,
+				A77C7CFC196A720D00101B2D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A77C7CFC196A720D00101B2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A77C7CFB196A720D00101B2D /* KKTower.app */,
+				A77C7D11196A720D00101B2D /* KKTowerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A77C7CFD196A720D00101B2D /* KKTower */ = {
+			isa = PBXGroup;
+			children = (
+				A79A72CD1974F284001CA8A7 /* Controller */,
+				A79A72CC1974F27E001CA8A7 /* View */,
+				A79A72CB1974F275001CA8A7 /* Model */,
+				A79A72CE1974F2B5001CA8A7 /* Utilities */,
+				A77C7CFE196A720D00101B2D /* Supporting Files */,
+			);
+			path = KKTower;
+			sourceTree = "<group>";
+		};
+		A77C7CFE196A720D00101B2D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A77C7D0B196A720D00101B2D /* Images.xcassets */,
+				A77C7D08196A720D00101B2D /* Main.storyboard */,
+				A77C7CFF196A720D00101B2D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A77C7D14196A720D00101B2D /* KKTowerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A77C7D17196A720D00101B2D /* KKTowerTests.swift */,
+				A77C7D15196A720D00101B2D /* Supporting Files */,
+			);
+			path = KKTowerTests;
+			sourceTree = "<group>";
+		};
+		A77C7D15196A720D00101B2D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A77C7D16196A720D00101B2D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A79A72CB1974F275001CA8A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A75F1F2D196A879800B030ED /* Ball.swift */,
+				A79A72C91974CF39001CA8A7 /* Board.swift */,
+				A79A72DC19762445001CA8A7 /* Fall.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A79A72CC1974F27E001CA8A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A77C7D04196A720D00101B2D /* GameScene.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A79A72CD1974F284001CA8A7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A77C7D00196A720D00101B2D /* AppDelegate.swift */,
+				A77C7D06196A720D00101B2D /* GameViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A79A72CE1974F2B5001CA8A7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A79A72CF1974F2CB001CA8A7 /* Array2D.swift */,
+				A79A72D11974F3C0001CA8A7 /* Set.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A77C7CFA196A720D00101B2D /* KKTower */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A77C7D1B196A720D00101B2D /* Build configuration list for PBXNativeTarget "KKTower" */;
+			buildPhases = (
+				A77C7CF7196A720D00101B2D /* Sources */,
+				A77C7CF8196A720D00101B2D /* Frameworks */,
+				A77C7CF9196A720D00101B2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KKTower;
+			productName = KKTower;
+			productReference = A77C7CFB196A720D00101B2D /* KKTower.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A77C7D10196A720D00101B2D /* KKTowerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A77C7D1E196A720D00101B2D /* Build configuration list for PBXNativeTarget "KKTowerTests" */;
+			buildPhases = (
+				A77C7D0D196A720D00101B2D /* Sources */,
+				A77C7D0E196A720D00101B2D /* Frameworks */,
+				A77C7D0F196A720D00101B2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A77C7D13196A720D00101B2D /* PBXTargetDependency */,
+			);
+			name = KKTowerTests;
+			productName = KKTowerTests;
+			productReference = A77C7D11196A720D00101B2D /* KKTowerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A77C7CF3196A720D00101B2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = KKBOX;
+				TargetAttributes = {
+					A77C7CFA196A720D00101B2D = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					A77C7D10196A720D00101B2D = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = A77C7CFA196A720D00101B2D;
+					};
+				};
+			};
+			buildConfigurationList = A77C7CF6196A720D00101B2D /* Build configuration list for PBXProject "KKTower" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A77C7CF2196A720D00101B2D;
+			productRefGroup = A77C7CFC196A720D00101B2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A77C7CFA196A720D00101B2D /* KKTower */,
+				A77C7D10196A720D00101B2D /* KKTowerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A77C7CF9196A720D00101B2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A77C7D0C196A720D00101B2D /* Images.xcassets in Resources */,
+				A77C7D0A196A720D00101B2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77C7D0F196A720D00101B2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A77C7CF7196A720D00101B2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A75F1F2E196A879800B030ED /* Ball.swift in Sources */,
+				A79A72D01974F2CB001CA8A7 /* Array2D.swift in Sources */,
+				A77C7D05196A720D00101B2D /* GameScene.swift in Sources */,
+				A79A72D21974F3C0001CA8A7 /* Set.swift in Sources */,
+				A79A72DD19762445001CA8A7 /* Fall.swift in Sources */,
+				A79A72CA1974CF39001CA8A7 /* Board.swift in Sources */,
+				A77C7D07196A720D00101B2D /* GameViewController.swift in Sources */,
+				A77C7D01196A720D00101B2D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A77C7D0D196A720D00101B2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A77C7D18196A720D00101B2D /* KKTowerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A77C7D13196A720D00101B2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A77C7CFA196A720D00101B2D /* KKTower */;
+			targetProxy = A77C7D12196A720D00101B2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A77C7D08196A720D00101B2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A77C7D09196A720D00101B2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A77C7D19196A720D00101B2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A77C7D1A196A720D00101B2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A77C7D1C196A720D00101B2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = KKTower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A77C7D1D196A720D00101B2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = KKTower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A77C7D1F196A720D00101B2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KKTower.app/KKTower";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KKTowerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		A77C7D20196A720D00101B2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KKTower.app/KKTower";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KKTowerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A77C7CF6196A720D00101B2D /* Build configuration list for PBXProject "KKTower" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77C7D19196A720D00101B2D /* Debug */,
+				A77C7D1A196A720D00101B2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A77C7D1B196A720D00101B2D /* Build configuration list for PBXNativeTarget "KKTower" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77C7D1C196A720D00101B2D /* Debug */,
+				A77C7D1D196A720D00101B2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A77C7D1E196A720D00101B2D /* Build configuration list for PBXNativeTarget "KKTowerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A77C7D1F196A720D00101B2D /* Debug */,
+				A77C7D20196A720D00101B2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A77C7CF3196A720D00101B2D /* Project object */;
+}
