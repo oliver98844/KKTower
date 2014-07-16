@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A74F8A1E19767ADA00378285 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A74F8A1C19767ADA00378285 /* spark.png */; };
+		A74F8A1F19767ADA00378285 /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = A74F8A1D19767ADA00378285 /* spark.sks */; };
 		A75F1F2E196A879800B030ED /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F1F2D196A879800B030ED /* Ball.swift */; };
 		A77C7D01196A720D00101B2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D00196A720D00101B2D /* AppDelegate.swift */; };
 		A77C7D05196A720D00101B2D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D04196A720D00101B2D /* GameScene.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A74F8A1C19767ADA00378285 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		A74F8A1D19767ADA00378285 /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
 		A75F1F2D196A879800B030ED /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		A77C7CFB196A720D00101B2D /* KKTower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KKTower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77C7CFF196A720D00101B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				A77C7D0B196A720D00101B2D /* Images.xcassets */,
+				A74F8A1C19767ADA00378285 /* spark.png */,
+				A74F8A1D19767ADA00378285 /* spark.sks */,
 				A77C7D08196A720D00101B2D /* Main.storyboard */,
 				A77C7CFF196A720D00101B2D /* Info.plist */,
 			);
@@ -240,6 +246,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77C7D0C196A720D00101B2D /* Images.xcassets in Resources */,
+				A74F8A1F19767ADA00378285 /* spark.sks in Resources */,
+				A74F8A1E19767ADA00378285 /* spark.png in Resources */,
 				A77C7D0A196A720D00101B2D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

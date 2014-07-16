@@ -28,6 +28,7 @@ class GameScene: SKScene {
 	let gameLayer = SKNode()
 	let ballsLayer = SKNode()
 	let tilesLayer = SKNode()
+	let particleLayer = SKNode()
 	
 	var movingNode: BallNode?
 	var movingBall: Ball?
@@ -46,6 +47,7 @@ class GameScene: SKScene {
 		
 		gameLayer.addChild(tilesLayer)
 		gameLayer.addChild(ballsLayer)
+		gameLayer.addChild(particleLayer)
 		
 		for x in 0..<NumColumns {
 			for y in 0..<NumRows {
@@ -185,6 +187,14 @@ extension GameScene {
 			let delay = 0.05 + 0.35 * NSTimeInterval(index)
 			longestDuration = max(longestDuration, 0.3 + delay)
 			for ball in set {
+				let path = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
+				var particle: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as SKEmitterNode
+				particle.position = pointForBall(ball.column, row: ball.row)
+				particle.particleColor = ball.color.color
+				runAction(SKAction.waitForDuration(delay)) {
+					self.particleLayer.addChild(particle)
+					particle.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.removeFromParent()]))
+				}
 				let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
 				scaleAction.timingMode = .EaseOut
 				ball.node!.runAction(SKAction.sequence([SKAction.waitForDuration(delay), scaleAction, SKAction.removeFromParent()]))
