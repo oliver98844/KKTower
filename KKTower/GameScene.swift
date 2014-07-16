@@ -9,25 +9,19 @@
 import SpriteKit
 
 class BallNode: SKShapeNode {
-	let circle: SKShapeNode
 	
 	init(color: BallColor, width: CGFloat) {
-		self.circle = SKShapeNode()
-		
 		super.init()
-		
-		self.path = UIBezierPath(rect: CGRectMake(0, 0, width, width)).CGPath
-		self.lineWidth = 0
-		self.circle.path = UIBezierPath(ovalInRect: CGRectInset(frame, 2, 2)).CGPath
-		self.circle.fillColor = color.color
-		self.addChild(circle)
+		self.path = UIBezierPath(ovalInRect: CGRectMake(0, 0, width, width)).CGPath
+		self.fillColor = color.color
 	}
 }
 
 class GameScene: SKScene {
 	var board: Board!
 	
-	let ballEdge: CGFloat
+	let tileWidth: CGFloat
+	var ballWidth: CGFloat { get { return tileWidth - 6 } }
 	
 	let gameLayer = SKNode()
 	let ballsLayer = SKNode()
@@ -40,7 +34,7 @@ class GameScene: SKScene {
 	var didEndMovingHandler: (() -> ())?
 	
 	init(size: CGSize) {
-		ballEdge = size.width / CGFloat(NumColumns)
+		tileWidth = size.width / CGFloat(NumColumns)
 		
 		super.init(size: size)
 		
@@ -54,8 +48,8 @@ class GameScene: SKScene {
 		for x in 0..<NumColumns {
 			for y in 0..<NumRows {
 				var tile = SKShapeNode()
-				tile.path = UIBezierPath(rect: CGRectMake(0, 0, ballEdge, ballEdge)).CGPath
-				tile.position = pointForPosition(x, row: y)
+				tile.path = UIBezierPath(rect: CGRectMake(0, 0, tileWidth, tileWidth)).CGPath
+				tile.position = pointForTile(x, row: y)
 				tile.fillColor = (x + y) % 2 == 0 ? UIColor(white: 0.7, alpha: 0.8) : UIColor(white: 0.3, alpha: 0.8)
 				tile.lineWidth = 0
 				tilesLayer.addChild(tile)
@@ -68,8 +62,8 @@ class GameScene: SKScene {
 extension GameScene {
 	func addNodesForBalls(balls: Set<Ball>) {
 		for ball in balls {
-			let node = BallNode(color: ball.color, width: ballEdge)
-			node.position = pointForPosition(ball.column, row:ball.row)
+			let node = BallNode(color: ball.color, width: ballWidth)
+			node.position = pointForBall(ball.column, row:ball.row)
 			ballsLayer.addChild(node)
 			ball.node = node
 		}
@@ -77,21 +71,26 @@ extension GameScene {
 	
 	func addNodesForFalls(falls: Set<Fall>) {
 		for fall in falls {
-			let node = BallNode(color: fall.ball.color, width: ballEdge)
-			node.position = pointForPosition(fall.ball.column, row:fall.fromRow)
+			let node = BallNode(color: fall.ball.color, width: ballWidth)
+			node.position = pointForBall(fall.ball.column, row:fall.fromRow)
 			ballsLayer.addChild(node)
 			fall.ball.node = node
 		}
 	}
 	
-	func pointForPosition(column: Int, row: Int) -> CGPoint {
-		return CGPoint(x: CGFloat(column) * ballEdge, y: CGFloat(row) * ballEdge)
+	func pointForTile(column: Int, row: Int) -> CGPoint {
+		return CGPoint(x: CGFloat(column) * tileWidth, y: CGFloat(row) * tileWidth)
 	}
 	
-	func convertPoint(point: CGPoint) -> (success: Bool, column: Int, row: Int) {
-		if point.x >= 0 && point.x < CGFloat(NumColumns) * ballEdge && point.y >= 0 && point.y < CGFloat(NumRows) * ballEdge {
-			return (true, Int(point.x / ballEdge), Int(point.y / ballEdge))
-		} else {
+	func pointForBall(column: Int, row: Int) -> CGPoint {
+		return CGPoint(x: CGFloat(column) * tileWidth + 3, y: CGFloat(row) * tileWidth + 3)
+	}
+	
+	func tileAtPoint(point: CGPoint) -> (inTile: Bool, column: Int, row: Int) {
+		if point.x >= 0 && point.x < CGFloat(NumColumns) * tileWidth && point.y >= 0 && point.y < CGFloat(NumRows) * tileWidth {
+			return (true, Int(point.x / tileWidth), Int(point.y / tileWidth))
+		}
+		else {
 			return (false, 0, 0)  // invalid location
 		}
 	}
@@ -102,15 +101,15 @@ extension GameScene {
 	override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 		let touch = touches.anyObject() as UITouch
 		let location = touch.locationInNode(ballsLayer)
-		let (success, column, row) = convertPoint(location)
+		let (inTile, column, row) = tileAtPoint(location)
 		
-		if success {
+		if inTile {
 			if let ball = board.ballAtColumn(column, row: row) {
 				movingBall = ball
-				movingBall!.node!.circle.fillColor = movingBall!.node!.circle.fillColor.colorWithAlphaComponent(0.3)
-				movingNode = BallNode(color: ball.color, width: ballEdge)
-				movingNode!.circle.fillColor = movingNode!.circle.fillColor.colorWithAlphaComponent(0.7)
-				movingNode!.position = CGPointMake(location.x - ballEdge / 2, location.y - ballEdge / 2)
+				movingBall!.node!.fillColor = movingBall!.node!.fillColor.colorWithAlphaComponent(0.3)
+				movingNode = BallNode(color: ball.color, width: ballWidth)
+				movingNode!.fillColor = movingNode!.fillColor.colorWithAlphaComponent(0.7)
+				movingNode!.position = CGPointMake(location.x - ballWidth / 2, location.y - ballWidth / 2)
 				movingNode!.zPosition = 2
 				ballsLayer.addChild(movingNode)
 			}
@@ -124,11 +123,11 @@ extension GameScene {
 		
 		let touch = touches.anyObject() as UITouch
 		let location = touch.locationInNode(ballsLayer)
-		movingNode!.position = CGPointMake(location.x - ballEdge / 2, location.y - ballEdge / 2)
+		movingNode!.position = CGPointMake(location.x - ballWidth / 2, location.y - ballWidth / 2)
 		
-		let (success, column, row) = convertPoint(location)
+		let (inTile, column, row) = tileAtPoint(location)
 		
-		if success {
+		if inTile {
 			if let ball = board.ballAtColumn(column, row: row) {
 				if ball != movingBall {
 					if let handler = swapHandler {
@@ -144,7 +143,7 @@ extension GameScene {
 			return
 		}
 		
-		movingBall!.node!.circle.fillColor = movingBall!.node!.circle.fillColor.colorWithAlphaComponent(1.0)
+		movingBall!.node!.fillColor = movingBall!.node!.fillColor.colorWithAlphaComponent(1.0)
 		movingNode!.removeFromParent()
 		movingNode = nil
 		
@@ -169,11 +168,11 @@ extension GameScene {
 		
 		let Duration: NSTimeInterval = 0.1
 		
-		let move1 = SKAction.moveTo(pointForPosition(ball1.column, row: ball1.row), duration: Duration)
+		let move1 = SKAction.moveTo(pointForBall(ball1.column, row: ball1.row), duration: Duration)
 		move1.timingMode = .EaseOut
 		node1.runAction(move1)
 		
-		let move2 = SKAction.moveTo(pointForPosition(ball2.column, row: ball2.row), duration: Duration)
+		let move2 = SKAction.moveTo(pointForBall(ball2.column, row: ball2.row), duration: Duration)
 		move2.timingMode = .EaseOut
 		node2.runAction(move2)
 	}
@@ -198,9 +197,9 @@ extension GameScene {
 		let delay = 0.05
 		
 		for fall in falls {
-			let newPoint = pointForPosition(fall.ball.column, row: fall.ball.row)
+			let newPoint = pointForBall(fall.ball.column, row: fall.ball.row)
 			let node = fall.ball.node!
-			let duration = NSTimeInterval(((node.position.y - newPoint.y) / ballEdge) * 0.1)
+			let duration = NSTimeInterval(((node.position.y - newPoint.y) / tileWidth) * 0.1)
 			longestDuration = max(longestDuration, duration + delay)
 			let moveAction = SKAction.moveTo(newPoint, duration: duration)
 			moveAction.timingMode = .EaseOut
