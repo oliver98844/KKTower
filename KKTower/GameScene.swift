@@ -59,6 +59,7 @@ class GameScene: SKScene {
 	let tilesLayer = SKNode()
 	let particleLayer = SKNode()
 	let timerNode: TimerNode
+	let scoreNode = SKLabelNode(fontNamed: "GillSans-BoldItalic")
 	
 	var movingNode: BallNode?
 	var movingBall: Ball?
@@ -84,7 +85,12 @@ class GameScene: SKScene {
 		gameLayer.addChild(ballsLayer)
 		gameLayer.addChild(particleLayer)
 		
+		scoreNode.fontSize = 150
+		scoreNode.text = "0"
+		scoreNode.position = CGPointMake(size.width / 2, (size.height + timerNode.position.y + TimerHeight) / 2 - 75.0)
+		
 		tilesLayer.addChild(timerNode)
+		tilesLayer.addChild(scoreNode)
 		
 		for x in 0..<NumColumns {
 			for y in 0..<NumRows {
@@ -107,10 +113,11 @@ class GameScene: SKScene {
 			if interval > 6.0 {
 				touchesEnded(nil, withEvent: nil)
 			}
-			
+			else {
 			timerNode.setPercentage((6.0 - interval) / 6.0)
 		}
 	}
+}
 }
 
 // Location Utilities
@@ -266,5 +273,20 @@ extension GameScene {
 			node.runAction(SKAction.sequence([SKAction.waitForDuration(delay), moveAction]))
 		}
 		runAction(SKAction.waitForDuration(longestDuration), completion: completion)
+	}
+	
+	func animateScore(score: Int, animate: Bool, completion: () -> ()) {
+		if animate {
+			scoreNode.runAction(SKAction.sequence([
+				SKAction.waitForDuration(0.1),
+				SKAction.scaleTo(1.2, duration: 0.1),
+				SKAction.runBlock({self.scoreNode.text = String(score)}),
+				SKAction.scaleTo(1.0, duration: 0.1)]))
+			
+			runAction(SKAction.waitForDuration(0.3), completion: completion)
+		}
+		else {
+			self.scoreNode.text = String(score)
+		}
 	}
 }

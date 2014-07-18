@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
 	var board: Board!
 	
 	var remainMatches: Array<Set<Ball>> = []
+	var score = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,8 @@ class GameViewController: UIViewController {
 			return
 		}
 		let match = remainMatches.removeLast()
+		score += match.count()
+		scene.animateScore(score, animate: true) {}
 		scene.animateMatchRemoval(match, animateRemainMatches)
 	}
 }
