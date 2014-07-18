@@ -114,10 +114,10 @@ class GameScene: SKScene {
 				touchesEnded(nil, withEvent: nil)
 			}
 			else {
-			timerNode.setPercentage((6.0 - interval) / 6.0)
+				timerNode.setPercentage((6.0 - interval) / 6.0)
+			}
 		}
 	}
-}
 }
 
 // Location Utilities
@@ -246,16 +246,16 @@ extension GameScene {
 	
 	func animateMatchRemoval(match: Set<Ball>, completion: () -> ()) {
 		for ball in match {
-				let path = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
-				var particle: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as SKEmitterNode
-				particle.position = pointForBall(ball.column, row: ball.row)
-				particle.particleColor = ball.color.color
-					self.particleLayer.addChild(particle)
-					particle.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.removeFromParent()]))
-				let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
-				scaleAction.timingMode = .EaseOut
+			let path = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
+			var particle: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as SKEmitterNode
+			particle.position = pointForBall(ball.column, row: ball.row)
+			particle.particleColor = ball.color.color
+			self.particleLayer.addChild(particle)
+			particle.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.removeFromParent()]))
+			let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
+			scaleAction.timingMode = .EaseOut
 			ball.node!.runAction(SKAction.sequence([scaleAction, SKAction.removeFromParent()]))
-			}
+		}
 		runAction(SKAction.waitForDuration(0.3), completion: completion)
 	}
 	
