@@ -8,6 +8,8 @@
 
 import SpriteKit
 
+let TimerHeight: CGFloat = 10.0
+
 class BallNode: SKShapeNode {
 	
 	init(color: BallColor, width: CGFloat) {
@@ -16,6 +18,33 @@ class BallNode: SKShapeNode {
 		CGPathAddArc(ovalPath, nil, CGFloat(0), CGFloat(0), width / 2, CGFloat(0), CGFloat(2 * M_PI), false);
 		self.path = ovalPath
 		self.fillColor = color.color
+	}
+}
+
+class TimerNode: SKShapeNode {
+	let bar = SKShapeNode()
+	
+	init(size: CGSize) {
+		super.init()
+		self.path = UIBezierPath(rect: CGRectMake(0, 0, size.width, size.height)).CGPath
+		self.lineWidth = 0
+		
+		let border = SKShapeNode()
+		border.path = UIBezierPath(rect: CGRectMake(1, 1, size.width - 2, size.height - 2)).CGPath
+		addChild(border)
+		
+		bar.path = UIBezierPath(rect: CGRectMake(0, 0, size.width - 4, size.height - 4)).CGPath
+		bar.position = CGPointMake(2.0, 2.0)
+		bar.lineWidth = 0
+		bar.fillColor = BallColor.Green.color
+		addChild(bar)
+	}
+	
+	func setPercentage(var percentage: Float) {
+		percentage = percentage > 1.0 ? 1.0 : percentage
+		percentage = percentage < 0.0 ? 0.0 : percentage
+		bar.path = UIBezierPath(rect: CGRectMake(0, 0, (frame.size.width - 4) * percentage, frame.size.height - 4)).CGPath
+		bar.fillColor = percentage > 0.3 ? BallColor.Green.color : BallColor.Red.color
 	}
 }
 
@@ -29,15 +58,21 @@ class GameScene: SKScene {
 	let ballsLayer = SKNode()
 	let tilesLayer = SKNode()
 	let particleLayer = SKNode()
+	let timerNode: TimerNode
 	
 	var movingNode: BallNode?
 	var movingBall: Ball?
+	var moveStartTime: NSTimeInterval?
 	
 	var swapHandler: ((Ball, Ball) -> ())?
 	var didEndMovingHandler: (() -> ())?
 	
+	var currentTime: NSTimeInterval = 0
+	
 	init(size: CGSize) {
 		tileWidth = size.width / CGFloat(NumColumns)
+		timerNode = TimerNode(size: CGSizeMake(size.width, TimerHeight))
+		timerNode.position = CGPointMake(0, tileWidth * CGFloat(NumRows))
 		
 		super.init(size: size)
 		
@@ -49,6 +84,8 @@ class GameScene: SKScene {
 		gameLayer.addChild(ballsLayer)
 		gameLayer.addChild(particleLayer)
 		
+		tilesLayer.addChild(timerNode)
+		
 		for x in 0..<NumColumns {
 			for y in 0..<NumRows {
 				var tile = SKShapeNode()
@@ -58,6 +95,20 @@ class GameScene: SKScene {
 				tile.lineWidth = 0
 				tilesLayer.addChild(tile)
 			}
+		}
+	}
+	
+	override func update(currentTime: NSTimeInterval) {
+		self.currentTime = currentTime
+		
+		if let time = moveStartTime {
+			let interval = Float(self.currentTime - time)
+			
+			if interval > 6.0 {
+				touchesEnded(nil, withEvent: nil)
+			}
+			
+			timerNode.setPercentage((6.0 - interval) / 6.0)
 		}
 	}
 }
@@ -132,6 +183,9 @@ extension GameScene {
 		let (inTile, column, row) = tileAtPoint(location)
 		
 		if inTile {
+			if !moveStartTime {
+				moveStartTime = currentTime
+			}
 			if let ball = board.ballAtColumn(column, row: row) {
 				if ball != movingBall {
 					if let handler = swapHandler {
@@ -150,6 +204,8 @@ extension GameScene {
 		movingBall!.node!.fillColor = movingBall!.node!.fillColor.colorWithAlphaComponent(1.0)
 		movingNode!.removeFromParent()
 		movingNode = nil
+		moveStartTime = nil
+		timerNode.setPercentage(1.0)
 		
 		if let handler = didEndMovingHandler {
 			handler()
