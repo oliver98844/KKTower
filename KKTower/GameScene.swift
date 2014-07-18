@@ -245,16 +245,25 @@ extension GameScene {
 	}
 	
 	func animateMatchRemoval(match: Set<Ball>, completion: () -> ()) {
+		let path = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
+		let template = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as SKEmitterNode
 		for ball in match {
-			let path = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
-			var particle: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as SKEmitterNode
-			particle.position = pointForBall(ball.column, row: ball.row)
+			let particle = template.copy() as SKEmitterNode
+			particle.position = CGPointMake(scoreNode.position.x, scoreNode.position.y + 30.0)
 			particle.particleColor = ball.color.color
-			self.particleLayer.addChild(particle)
-			particle.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.removeFromParent()]))
+			
 			let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
 			scaleAction.timingMode = .EaseOut
-			ball.node!.runAction(SKAction.sequence([scaleAction, SKAction.removeFromParent()]))
+			let moveAction = SKAction.moveTo(scoreNode.position, duration: 0.3)
+			moveAction.timingMode = .EaseOut
+			
+			ball.node!.runAction(SKAction.sequence([
+				SKAction.group([scaleAction, moveAction]),
+				SKAction.runBlock({
+					self.particleLayer.addChild(particle)
+					particle.runAction(SKAction.sequence([SKAction.waitForDuration(0.2), SKAction.removeFromParent()]))
+				}),
+				SKAction.removeFromParent()]))
 		}
 		runAction(SKAction.waitForDuration(0.3), completion: completion)
 	}
@@ -278,12 +287,11 @@ extension GameScene {
 	func animateScore(score: Int, animate: Bool, completion: () -> ()) {
 		if animate {
 			scoreNode.runAction(SKAction.sequence([
-				SKAction.waitForDuration(0.1),
 				SKAction.scaleTo(1.2, duration: 0.1),
 				SKAction.runBlock({self.scoreNode.text = String(score)}),
 				SKAction.scaleTo(1.0, duration: 0.1)]))
 			
-			runAction(SKAction.waitForDuration(0.3), completion: completion)
+			runAction(SKAction.waitForDuration(0.2), completion: completion)
 		}
 		else {
 			self.scoreNode.text = String(score)

@@ -110,7 +110,8 @@ class GameViewController: UIViewController {
 		}
 		let match = remainMatches.removeLast()
 		score += match.count()
-		scene.animateScore(score, animate: true) {}
-		scene.animateMatchRemoval(match, animateRemainMatches)
+		scene.animateMatchRemoval(match) {
+			self.scene.animateScore(self.score, animate: true, self.animateRemainMatches)
+		}
 	}
 }
