@@ -237,26 +237,19 @@ extension GameScene {
 		node2.runAction(move2)
 	}
 	
-	func animateMatchesRemoval(matches: Array<Set<Ball>>, completion: () -> ()) {
-		var longestDuration: NSTimeInterval = 0
-		for (index ,set) in enumerate(matches) {
-			let delay = 0.05 + 0.35 * NSTimeInterval(index)
-			longestDuration = max(longestDuration, 0.3 + delay)
-			for ball in set {
+	func animateMatchRemoval(match: Set<Ball>, completion: () -> ()) {
+		for ball in match {
 				let path = NSBundle.mainBundle().pathForResource("spark", ofType: "sks")
 				var particle: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as SKEmitterNode
 				particle.position = pointForBall(ball.column, row: ball.row)
 				particle.particleColor = ball.color.color
-				runAction(SKAction.waitForDuration(delay)) {
 					self.particleLayer.addChild(particle)
 					particle.runAction(SKAction.sequence([SKAction.waitForDuration(0.3), SKAction.removeFromParent()]))
-				}
 				let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
 				scaleAction.timingMode = .EaseOut
-				ball.node!.runAction(SKAction.sequence([SKAction.waitForDuration(delay), scaleAction, SKAction.removeFromParent()]))
+			ball.node!.runAction(SKAction.sequence([scaleAction, SKAction.removeFromParent()]))
 			}
-		}
-		runAction(SKAction.waitForDuration(longestDuration), completion: completion)
+		runAction(SKAction.waitForDuration(0.3), completion: completion)
 	}
 	
 	func animateFallingBalls(falls: [Fall], completion: () -> ()) {

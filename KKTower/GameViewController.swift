@@ -12,6 +12,8 @@ import SpriteKit
 class GameViewController: UIViewController {
 	var scene: GameScene!
 	var board: Board!
+	
+	var remainMatches: Array<Set<Ball>> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,15 +57,23 @@ class GameViewController: UIViewController {
 			return
 		}
 		
+		remainMatches = matches
 		view.userInteractionEnabled = false
 		
-		scene.animateMatchesRemoval(matches) {
+		animateRemainMatches()
+	}
+	
+	func animateRemainMatches() {
+		if remainMatches.count == 0 {
 			let (newFalls, falls) = self.board.fillHoles()
 			
 			self.scene.addNodesForFalls(newFalls)
 			self.scene.animateFallingBalls(falls) {
 				self.handleDidEndMoving()
 			}
+			return
 		}
+		let match = remainMatches.removeLast()
+		scene.animateMatchRemoval(match, animateRemainMatches)
 	}
 }
