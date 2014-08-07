@@ -27,7 +27,7 @@ class GameViewController: UIViewController {
 	var timer: NSTimer?
 	var startDate: NSDate?
 	
-	@IBOutlet var timeLabel: UILabel
+	@IBOutlet var timeLabel: UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class GameViewController: UIViewController {
 	
 	func resetGame() {
 		score = 0
-		timeLabel.text = "00:00"
+		timeLabel?.text = "00:00"
 		
 		board = Board()
 		scene = GameScene(size: self.view.frame.size)
@@ -73,7 +73,7 @@ class GameViewController: UIViewController {
 		let minute: Int = Int(interval) / 60
 		let second: Int = Int(interval) % 60
 		let f = "02"
-		timeLabel.text = "\(minute.format(f)):\(second.format(f))"
+		timeLabel?.text = "\(minute.format(f)):\(second.format(f))"
 	}
 	
 	func handleSwap(ball1: Ball, ball2: Ball) {

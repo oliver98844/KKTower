@@ -12,6 +12,10 @@ let TimerHeight: CGFloat = 10.0
 
 class BallNode: SKShapeNode {
 	
+	required init(coder aDecoder: NSCoder!) {
+		super.init(coder: aDecoder)
+	}
+	
 	init(color: BallColor, width: CGFloat) {
 		super.init()
 		var ovalPath = CGPathCreateMutable();
@@ -23,6 +27,10 @@ class BallNode: SKShapeNode {
 
 class TimerNode: SKShapeNode {
 	let bar = SKShapeNode()
+	
+	required init(coder aDecoder: NSCoder!) {
+		super.init(coder: aDecoder)
+	}
 	
 	init(size: CGSize) {
 		super.init()
@@ -43,7 +51,7 @@ class TimerNode: SKShapeNode {
 	func setPercentage(var percentage: Float) {
 		percentage = percentage > 1.0 ? 1.0 : percentage
 		percentage = percentage < 0.0 ? 0.0 : percentage
-		bar.path = UIBezierPath(rect: CGRectMake(0, 0, (frame.size.width - 4) * percentage, frame.size.height - 4)).CGPath
+		bar.path = UIBezierPath(rect: CGRectMake(CGFloat(0.0), CGFloat(0.0), CGFloat(Float(frame.size.width - 4.0) * percentage), CGFloat(frame.size.height - 4.0))).CGPath
 		bar.fillColor = percentage > 0.3 ? BallColor.Green.color : BallColor.Red.color
 	}
 }
@@ -70,7 +78,14 @@ class GameScene: SKScene {
 	
 	var currentTime: NSTimeInterval = 0
 	
-	init(size: CGSize) {
+	required init(coder aDecoder: NSCoder!) {
+		tileWidth = 0.0
+		timerNode = TimerNode(size: CGSizeMake(320.0, TimerHeight))
+		
+		super.init(coder: aDecoder)
+	}
+	
+	override init(size: CGSize) {
 		tileWidth = size.width / CGFloat(NumColumns)
 		timerNode = TimerNode(size: CGSizeMake(size.width, TimerHeight))
 		timerNode.position = CGPointMake(0, tileWidth * CGFloat(NumRows))
@@ -190,7 +205,7 @@ extension GameScene {
 		let (inTile, column, row) = tileAtPoint(location)
 		
 		if inTile {
-			if !moveStartTime {
+			if moveStartTime == nil {
 				moveStartTime = currentTime
 			}
 			if let ball = board.ballAtColumn(column, row: row) {

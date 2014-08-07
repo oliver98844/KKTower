@@ -119,7 +119,7 @@ class Board {
 			}
 		}
 		
-		if index1 && index2 {
+		if index1 != nil && index2 != nil {
 			var set1 = array.removeAtIndex(index2!)
 			var set2 = array.removeAtIndex(index1!)
 			array.append(set1.unionSet(set2))
@@ -160,7 +160,7 @@ class Board {
 							break
 						}
 					}
-					if !fall {
+					if fall == nil {
 						balls[column, row] = Ball(column: column, row: row, ballColor: BallColor.random())
 						fall = Fall(ball: balls[column, row]!, fromRow: topUpIndex)
 						topUpIndex++
