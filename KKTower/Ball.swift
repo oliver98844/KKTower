@@ -9,8 +9,8 @@
 import SpriteKit
 import UIKit
 
-enum BallColor: Int, Printable {
-	case Blue = 0, Red, Green, Yellow, Purple, Pink
+enum BallColor: Int, CustomStringConvertible {
+	case blue = 0, red, green, yellow, purple, pink
 	var color: UIColor {
 		let colors = [
 			UIColor(red: 0.337, green: 0.662, blue: 0.976, alpha: 1.0),
@@ -19,18 +19,18 @@ enum BallColor: Int, Printable {
 			UIColor(red: 0.956, green: 0.823, blue: 0.243, alpha: 1.0),
 			UIColor(red: 0.698, green: 0.431, blue: 0.874, alpha: 1.0),
 			UIColor(red: 0.917, green: 0.368, blue: 0.356, alpha: 1.0)]
-		return colors[toRaw()]
+		return colors[self.rawValue]
 	}
 	static func random() -> BallColor {
-		return BallColor.fromRaw(Int(arc4random_uniform(6)))!
+		return BallColor(rawValue: Int(arc4random_uniform(6)))!
 	}
 	var description: String {
 		let names = ["Blue", "Red", "Green", "Yellow", "Purple", "Pink"]
-		return names[toRaw()]
+		return names[self.rawValue]
 	}
 }
 
-class Ball: Hashable, Printable {
+class Ball: Hashable, CustomStringConvertible {
 	var column: Int
 	var row: Int
 	let color: BallColor

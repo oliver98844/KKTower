@@ -12,7 +12,7 @@ let NumRows = 5
 class Board {
 	var balls = Array2D<Ball>(columns: NumColumns, rows: NumRows)
 	
-	func ballAtColumn(column: Int, row: Int) -> Ball? {
+	func ballAtColumn(_ column: Int, row: Int) -> Ball? {
 		assert(column >= 0 && column < NumColumns)
 		assert(row >= 0 && row < NumRows)
 		return balls[column, row]
@@ -26,12 +26,12 @@ class Board {
 	}
  
 	func createInitialBalls() -> Set<Ball> {
-		var set = Set<Ball>()
+		let set = Set<Ball>()
 		
 		for row in 0..<NumRows {
 			for column in 0..<NumColumns {
 				var color : BallColor
-				do {
+				repeat {
 					color = BallColor.random()
 				} while (column >= 2 && balls[column - 1, row]?.color == color && balls[column - 2, row]?.color == color) ||
 					(row >= 2 && balls[column, row - 1]?.color == color && balls[column, row - 2]?.color == color)
@@ -45,7 +45,7 @@ class Board {
 		return set
 	}
 	
-	func performSwap(ball1: Ball, ball2: Ball) {
+	func performSwap(_ ball1: Ball, ball2: Ball) {
 		let column1 = ball1.column
 		let row1 = ball1.row
 		let column2 = ball2.column
@@ -63,21 +63,22 @@ class Board {
 	func detectHorizontalMatches() -> Array<Set<Ball>> {
 		var array = Array<Set<Ball>>()
 		for row in 0..<NumRows {
-			for var column = 0; column < NumColumns - 2 ; {
+			var column = 0
+			while column < (NumColumns - 2) {
 				if let ball = balls[column, row] {
 					let matchColor = ball.color
 					if balls[column + 1, row]?.color == matchColor && balls[column + 2, row]?.color == matchColor {
 						let set = Set<Ball>()
-						do {
+						repeat {
 							set.addElement(balls[column, row]!)
-							++column
+							column += 1
 						} while column < NumColumns && balls[column, row]?.color == matchColor
 						
 						array.append(set)
 						continue
 					}
 				}
-				++column
+				column += 1
 			}
 		}
 		return array
@@ -86,27 +87,28 @@ class Board {
 	func detectVerticalMatches() -> Array<Set<Ball>> {
 		var array = Array<Set<Ball>>()
 		for column in 0..<NumColumns {
-			for var row = 0; row < NumRows - 2 ; {
+			var row = 0
+			while row < (NumRows - 2) {
 				if let ball = balls[column, row] {
 					let matchColor = ball.color
 					if balls[column, row + 1]?.color == matchColor && balls[column, row + 2]?.color == matchColor {
 						let set = Set<Ball>()
-						do {
+						repeat {
 							set.addElement(balls[column, row]!)
-							++row
+							row += 1
 						} while row < NumRows && balls[column, row]?.color == matchColor
 						
 						array.append(set)
 						continue
 					}
 				}
-				++row
+				row += 1
 			}
 		}
 		return array
 	}
 	
-	func unionTwoIntersectedSetsInArray(inout array: Array<Set<Ball>>) -> Bool {
+	func unionTwoIntersectedSetsInArray(_ array: inout Array<Set<Ball>>) -> Bool {
 		var index1: Int?
 		var index2: Int?
 		
@@ -120,8 +122,8 @@ class Board {
 		}
 		
 		if index1 != nil && index2 != nil {
-			var set1 = array.removeAtIndex(index2!)
-			var set2 = array.removeAtIndex(index1!)
+			let set1 = array.remove(at: index2!)
+			let set2 = array.remove(at: index1!)
 			array.append(set1.unionSet(set2))
 			return true
 		}
@@ -130,7 +132,6 @@ class Board {
 	
 	func removeMatches() -> Array<Set<Ball>> {
 		var array = detectHorizontalMatches() + detectVerticalMatches()
-		var result: Bool
 		while unionTwoIntersectedSetsInArray(&array) {}
 		
 		for set in array {
@@ -143,7 +144,7 @@ class Board {
 	}
 	
 	func fillHoles() -> (newFalls: Set<Fall>, falls: [Fall]) {
-		var newFalls = Set<Fall>()
+		let newFalls = Set<Fall>()
 		var falls = [Fall]()
 		
 		for column in 0..<NumColumns {
@@ -163,7 +164,7 @@ class Board {
 					if fall == nil {
 						balls[column, row] = Ball(column: column, row: row, ballColor: BallColor.random())
 						fall = Fall(ball: balls[column, row]!, fromRow: topUpIndex)
-						topUpIndex++
+						topUpIndex += 1
 						newFalls.addElement(fall!)
 					}
 					falls.append(fall!)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A731F6251ECAEF4C00FD220F /* GameScene+GameScene_TouchEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = A731F6241ECAEF4C00FD220F /* GameScene+GameScene_TouchEvents.m */; };
 		A74F8A1E19767ADA00378285 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = A74F8A1C19767ADA00378285 /* spark.png */; };
 		A74F8A1F19767ADA00378285 /* spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = A74F8A1D19767ADA00378285 /* spark.sks */; };
 		A75F1F2E196A879800B030ED /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F1F2D196A879800B030ED /* Ball.swift */; };
@@ -15,24 +16,17 @@
 		A77C7D07196A720D00101B2D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D06196A720D00101B2D /* GameViewController.swift */; };
 		A77C7D0A196A720D00101B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77C7D08196A720D00101B2D /* Main.storyboard */; };
 		A77C7D0C196A720D00101B2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77C7D0B196A720D00101B2D /* Images.xcassets */; };
-		A77C7D18196A720D00101B2D /* KKTowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77C7D17196A720D00101B2D /* KKTowerTests.swift */; };
 		A79A72CA1974CF39001CA8A7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72C91974CF39001CA8A7 /* Board.swift */; };
 		A79A72D01974F2CB001CA8A7 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72CF1974F2CB001CA8A7 /* Array2D.swift */; };
 		A79A72D21974F3C0001CA8A7 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72D11974F3C0001CA8A7 /* Set.swift */; };
 		A79A72DD19762445001CA8A7 /* Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79A72DC19762445001CA8A7 /* Fall.swift */; };
+		A7E92F1C1ECAD9540068A3DF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E92F1A1ECAD9540068A3DF /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A77C7D12196A720D00101B2D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A77C7CF3196A720D00101B2D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A77C7CFA196A720D00101B2D;
-			remoteInfo = KKTower;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		A731F6221ECAEF4B00FD220F /* KKTower-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KKTower-Bridging-Header.h"; sourceTree = "<group>"; };
+		A731F6231ECAEF4C00FD220F /* GameScene+GameScene_TouchEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GameScene+GameScene_TouchEvents.h"; sourceTree = "<group>"; };
+		A731F6241ECAEF4C00FD220F /* GameScene+GameScene_TouchEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GameScene+GameScene_TouchEvents.m"; sourceTree = "<group>"; };
 		A74F8A1C19767ADA00378285 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		A74F8A1D19767ADA00378285 /* spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spark.sks; sourceTree = "<group>"; };
 		A75F1F2D196A879800B030ED /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
@@ -43,24 +37,15 @@
 		A77C7D06196A720D00101B2D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A77C7D09196A720D00101B2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A77C7D0B196A720D00101B2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A77C7D11196A720D00101B2D /* KKTowerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KKTowerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A77C7D16196A720D00101B2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A77C7D17196A720D00101B2D /* KKTowerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KKTowerTests.swift; sourceTree = "<group>"; };
 		A79A72C91974CF39001CA8A7 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		A79A72CF1974F2CB001CA8A7 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		A79A72D11974F3C0001CA8A7 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		A79A72DC19762445001CA8A7 /* Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fall.swift; sourceTree = "<group>"; };
+		A7E92F1B1ECAD9540068A3DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "KKTower/Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A77C7CF8196A720D00101B2D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77C7D0E196A720D00101B2D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				A77C7CFD196A720D00101B2D /* KKTower */,
-				A77C7D14196A720D00101B2D /* KKTowerTests */,
 				A77C7CFC196A720D00101B2D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				A77C7CFB196A720D00101B2D /* KKTower.app */,
-				A77C7D11196A720D00101B2D /* KKTowerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,28 +86,13 @@
 		A77C7CFE196A720D00101B2D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A731F6221ECAEF4B00FD220F /* KKTower-Bridging-Header.h */,
 				A77C7D0B196A720D00101B2D /* Images.xcassets */,
 				A74F8A1C19767ADA00378285 /* spark.png */,
 				A74F8A1D19767ADA00378285 /* spark.sks */,
+				A7E92F1A1ECAD9540068A3DF /* Launch Screen.storyboard */,
 				A77C7D08196A720D00101B2D /* Main.storyboard */,
 				A77C7CFF196A720D00101B2D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A77C7D14196A720D00101B2D /* KKTowerTests */ = {
-			isa = PBXGroup;
-			children = (
-				A77C7D17196A720D00101B2D /* KKTowerTests.swift */,
-				A77C7D15196A720D00101B2D /* Supporting Files */,
-			);
-			path = KKTowerTests;
-			sourceTree = "<group>";
-		};
-		A77C7D15196A720D00101B2D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A77C7D16196A720D00101B2D /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				A77C7D04196A720D00101B2D /* GameScene.swift */,
+				A731F6231ECAEF4C00FD220F /* GameScene+GameScene_TouchEvents.h */,
+				A731F6241ECAEF4C00FD220F /* GameScene+GameScene_TouchEvents.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -185,39 +155,19 @@
 			productReference = A77C7CFB196A720D00101B2D /* KKTower.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A77C7D10196A720D00101B2D /* KKTowerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A77C7D1E196A720D00101B2D /* Build configuration list for PBXNativeTarget "KKTowerTests" */;
-			buildPhases = (
-				A77C7D0D196A720D00101B2D /* Sources */,
-				A77C7D0E196A720D00101B2D /* Frameworks */,
-				A77C7D0F196A720D00101B2D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A77C7D13196A720D00101B2D /* PBXTargetDependency */,
-			);
-			name = KKTowerTests;
-			productName = KKTowerTests;
-			productReference = A77C7D11196A720D00101B2D /* KKTowerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A77C7CF3196A720D00101B2D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = KKBOX;
 				TargetAttributes = {
 					A77C7CFA196A720D00101B2D = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					A77C7D10196A720D00101B2D = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = A77C7CFA196A720D00101B2D;
+						DevelopmentTeam = GA2DMW4FFR;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -235,7 +185,6 @@
 			projectRoot = "";
 			targets = (
 				A77C7CFA196A720D00101B2D /* KKTower */,
-				A77C7D10196A720D00101B2D /* KKTowerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -248,14 +197,8 @@
 				A77C7D0C196A720D00101B2D /* Images.xcassets in Resources */,
 				A74F8A1F19767ADA00378285 /* spark.sks in Resources */,
 				A74F8A1E19767ADA00378285 /* spark.png in Resources */,
+				A7E92F1C1ECAD9540068A3DF /* Launch Screen.storyboard in Resources */,
 				A77C7D0A196A720D00101B2D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77C7D0F196A720D00101B2D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,26 +217,11 @@
 				A79A72CA1974CF39001CA8A7 /* Board.swift in Sources */,
 				A77C7D07196A720D00101B2D /* GameViewController.swift in Sources */,
 				A77C7D01196A720D00101B2D /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A77C7D0D196A720D00101B2D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A77C7D18196A720D00101B2D /* KKTowerTests.swift in Sources */,
+				A731F6251ECAEF4C00FD220F /* GameScene+GameScene_TouchEvents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A77C7D13196A720D00101B2D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A77C7CFA196A720D00101B2D /* KKTower */;
-			targetProxy = A77C7D12196A720D00101B2D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A77C7D08196A720D00101B2D /* Main.storyboard */ = {
@@ -302,6 +230,15 @@
 				A77C7D09196A720D00101B2D /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A7E92F1A1ECAD9540068A3DF /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7E92F1B1ECAD9540068A3DF /* Base */,
+			);
+			name = "Launch Screen.storyboard";
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -320,15 +257,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -362,8 +303,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -371,6 +314,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -380,6 +324,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -389,10 +334,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = GA2DMW4FFR;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = KKTower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kkbox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "KKTower/KKTower-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -401,46 +355,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = GA2DMW4FFR;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = KKTower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kkbox.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A77C7D1F196A720D00101B2D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KKTower.app/KKTower";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = KKTowerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		A77C7D20196A720D00101B2D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KKTower.app/KKTower";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = KKTowerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KKTower/KKTower-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -461,15 +386,6 @@
 			buildConfigurations = (
 				A77C7D1C196A720D00101B2D /* Debug */,
 				A77C7D1D196A720D00101B2D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A77C7D1E196A720D00101B2D /* Build configuration list for PBXNativeTarget "KKTowerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A77C7D1F196A720D00101B2D /* Debug */,
-				A77C7D20196A720D00101B2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

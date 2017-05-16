@@ -6,18 +6,18 @@
 //  Copyright (c) 2014年 KKBOX. All rights reserved.
 //
 
-class Set<T: Hashable>: SequenceType, Printable {
+class Set<T: Hashable>: Sequence, CustomStringConvertible {
 	var dictionary = Dictionary<T, Bool>()
 	
-	func addElement(newElement: T) {
+	func addElement(_ newElement: T) {
 		dictionary[newElement] = true
 	}
 	
-	func removeElement(element: T) {
+	func removeElement(_ element: T) {
 		dictionary[element] = nil
 	}
 	
-	func containsElement(element: T) -> Bool {
+	func containsElement(_ element: T) -> Bool {
 		return dictionary[element] != nil
 	}
 	
@@ -25,8 +25,8 @@ class Set<T: Hashable>: SequenceType, Printable {
 		return Array(dictionary.keys)
 	}
 	
-	func unionSet(aSet: Set<T>) -> Set<T> {
-		var combined = Set<T>()
+	func unionSet(_ aSet: Set<T>) -> Set<T> {
+		let combined = Set<T>()
 		
 		for obj in self {
 			combined.addElement(obj)
@@ -37,7 +37,7 @@ class Set<T: Hashable>: SequenceType, Printable {
 		return combined
 	}
 	
-	func intersectsSet(aSet: Set<T>) -> Bool {
+	func intersectsSet(_ aSet: Set<T>) -> Bool {
 		for obj in self {
 			if aSet.containsElement(obj) {
 				return true
@@ -50,8 +50,8 @@ class Set<T: Hashable>: SequenceType, Printable {
 		return dictionary.count
 	}
 	
-	func generate() -> IndexingGenerator<Array<T>> {
-		return allElements().generate()
+	func makeIterator() -> IndexingIterator<Array<T>> {
+		return allElements().makeIterator()
 	}
 	
 	var description: String {

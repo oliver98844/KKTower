@@ -12,38 +12,37 @@ import SpriteKit
 let TargetScore = 50
 
 extension Int {
-	func format(f: String) -> String {
-		return NSString(format: "%\(f)d", self)
+	func format(_ f: String) -> String {
+		return NSString(format: "%\(f)d" as NSString, self) as String
 	}
 }
 
 class GameViewController: UIViewController {
 	var scene: GameScene!
 	var board: Board!
-	var skView: SKView!
 	
 	var remainMatches: Array<Set<Ball>> = []
 	var score = 0
-	var timer: NSTimer?
-	var startDate: NSDate?
+	var timer: Timer?
+	var startDate: Date?
 	
-	@IBOutlet var timeLabel: UILabel?
+	@IBOutlet var skView: SKView!
+	@IBOutlet var timeLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		skView = view as SKView
 		skView.showsFPS = true
 		skView.showsNodeCount = true
-		skView.multipleTouchEnabled = false
+		skView.isMultipleTouchEnabled = false
 		
 		skView.presentScene(scene)
 		beginGame()
     }
 
-	override func supportedInterfaceOrientations() -> Int {
-		return Int(UIInterfaceOrientationMask.Portrait.toRaw())
-    }
+	override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+		return .portrait
+	}
 	
 	func resetGame() {
 		score = 0
@@ -51,7 +50,7 @@ class GameViewController: UIViewController {
 		
 		board = Board()
 		scene = GameScene(size: self.view.frame.size)
-		scene.scaleMode = .AspectFill
+		scene.scaleMode = .aspectFill
 		scene.board = board
 		scene.swapHandler = handleSwap
 		scene.didEndMovingHandler = handleDidEndMoving
@@ -62,10 +61,10 @@ class GameViewController: UIViewController {
 	
 	func beginGame() {
 		resetGame()
-		skView.presentScene(scene, transition: SKTransition.flipVerticalWithDuration(0.5))
+		skView.presentScene(scene, transition: SKTransition.flipVertical(withDuration: 0.5))
 		
-		timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updateTime"), userInfo: nil, repeats: true)
-		startDate = NSDate()
+		timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(GameViewController.updateTime), userInfo: nil, repeats: true)
+		startDate = Date()
 	}
 	
 	func updateTime() {
@@ -76,7 +75,7 @@ class GameViewController: UIViewController {
 		timeLabel?.text = "\(minute.format(f)):\(second.format(f))"
 	}
 	
-	func handleSwap(ball1: Ball, ball2: Ball) {
+	func handleSwap(_ ball1: Ball, ball2: Ball) {
 		board.performSwap(ball1, ball2: ball2)
 		scene.animateSwap(ball1, ball2:ball2)
 	}
@@ -88,12 +87,12 @@ class GameViewController: UIViewController {
 			if score >= TargetScore {
 				beginGame()
 			}
-			view.userInteractionEnabled = true
+			view.isUserInteractionEnabled = true
 			return
 		}
 		
 		remainMatches = matches
-		view.userInteractionEnabled = false
+		view.isUserInteractionEnabled = false
 		
 		animateRemainMatches()
 	}
@@ -111,7 +110,7 @@ class GameViewController: UIViewController {
 		let match = remainMatches.removeLast()
 		score += match.count()
 		scene.animateMatchRemoval(match) {
-			self.scene.animateScore(self.score, animate: true, self.animateRemainMatches)
+			self.scene.animateScore(self.score, animate: true, completion: self.animateRemainMatches)
 		}
 	}
 }

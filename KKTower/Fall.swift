@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 KKBOX. All rights reserved.
 //
 
-class Fall: Hashable, Printable {
+class Fall: Hashable, CustomStringConvertible {
 	let ball: Ball
 	let fromRow: Int
 	
