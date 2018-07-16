@@ -67,7 +67,7 @@ class GameViewController: UIViewController {
 		startDate = Date()
 	}
 	
-	func updateTime() {
+	@objc func updateTime() {
 		let interval = -startDate!.timeIntervalSinceNow
 		let minute: Int = Int(interval) / 60
 		let second: Int = Int(interval) % 60
